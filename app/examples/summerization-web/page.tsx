@@ -1,14 +1,19 @@
 'use client'
 
-import styles from './page.module.css';
+import styles from '../../page.module.css';
 import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
+  const params = useSearchParams();
 
   useEffect(() => {
     const getMessage = async () => {
-      const res = await fetch('/api', {
+      const url = params.get('url') || 'https://example.com';
+
+      const res = await fetch(`/api?url=${encodeURIComponent(url as string)}`, {
         method: 'GET',
+        
         // headers: {
         //   'Content-Type': 'application/json'
         // },
@@ -26,16 +31,17 @@ export default function Home() {
 
       if (!res.ok) {
         console.error('Failed to fetch message');
-        return
+        return;
       }
       console.log(await res.text());
     }
 
     getMessage();
-  }, []);
+  }, [params]);
 
   return (
-    <main className={styles.main}>
-    </main>
+    <div className={styles.container}>
+      {/* Your component JSX */}
+    </div>
   );
 }

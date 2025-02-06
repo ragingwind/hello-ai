@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import puppeteerCore from "puppeteer-core";
 import chromium from "@sparticuz/chromium";
-import { log } from "console";
 
 // async function screenshot(url: string) {
 //   const options = process.env.AWS_REGION
@@ -58,30 +57,33 @@ async function getBrowser() {
   return browser;
 }
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const targetUrl = url.searchParams.get('url') || 'https://example.com';
+
   const browser = await getBrowser();
-  console.log("Browser launched", browser);
+  console.log("Browser launched");
 
   const page = await browser.newPage();
-  console.log("Page created", page);
+  console.log("Page created");
 
   await page.setViewport({ width: 2000, height: 1000 });
 
-  console.log("Navigating to example.com");
+  console.log(`Navigating to ${targetUrl}`);
 
-  await page.goto("https://example.com");
-  const body = await page.$("title");
-  // const pdf = await page.pdf();
-  // const ss = await page.screenshot({ type: 'png' })
-  await browser.close();
-
+  await page.goto(targetUrl);
+  const bodyText = await page.evaluate(() => {
+    // Remove script and style elements
+    const scripts = document.querySelectorAll('script, style');
+    scripts.forEach(script => script.remove());
+    
+    // Get the body text
+    return document.body.innerText;
+  });
   
-  log("Body", body?.toString());
-  // return new NextResponse(ss, {
-  //   headers: {
-  //     "Content-Type": "application/octet-stream",
-  //   },
-  // });
-
-  return new NextResponse(body?.toString());
+  await browser.close();
+  
+  console.log("Extracted text:", bodyText);
+  
+  return new NextResponse(bodyText);
 }
