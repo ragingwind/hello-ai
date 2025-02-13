@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    serverComponentsExternalPackages: [
+    serverExternalPackages: [
       'puppeteer-core',
       '@sparticuz/chromium-min',
     ],
