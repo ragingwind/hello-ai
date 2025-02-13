@@ -11,7 +11,7 @@ export default function Home() {
     const getMessage = async () => {
       const url = params.get('url') || 'https://example.com';
 
-      const res = await fetch(`/api?url=${encodeURIComponent(url as string)}`, {
+      const res = await fetch(`/api/scrap?url=${encodeURIComponent(url as string)}`, {
         method: 'GET',
         
         // headers: {
