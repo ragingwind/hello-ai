@@ -109,8 +109,11 @@ function generateErrorSummary(error: unknown, llmConfig?: LLMConfig): string {
 **Configuration**:
 
 ⋅ Provider: ${llmConfig?.provider || 'Not configured'}
+
 ⋅ Model ID: ${llmConfig?.modelId || 'Not configured'}
+
 ⋅ API Key Status: ${llmConfig?.apiKey ? 'Configured' : 'Not configured'}
+
 ⋅ Base URL: ${llmConfig?.baseURL || 'Not configured'}
 `;
 }
