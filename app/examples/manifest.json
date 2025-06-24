@@ -1,0 +1,28 @@
+{
+  "name": "Hello AI Examples",
+  "description": "Collection of AI-powered application examples",
+  "version": "1.0.0",
+  "examples": [
+    {
+      "id": "scrapping",
+      "name": "Scraping and Summarization with Puppeteer",
+      "description": "Extract and summarize content from any web page using AI models with web scraping capabilities via Puppeteer and Mozilla Readability",
+      "path": "/examples/scrapping",
+      "features": [
+        "Multi-provider AI support (OpenAI, Anthropic, Google, Mistral, etc.)",
+        "Smart content extraction with Mozilla Readability",
+        "Cross-platform Chrome support for serverless deployment",
+        "Modern UI with model selection"
+      ],
+      "icon": "globe",
+      "technologies": [
+        "Next.js 15",
+        "Puppeteer",
+        "Mozilla Readability",
+        "Vercel AI SDK",
+        "Tailwind CSS",
+        "shadcn/ui"
+      ]
+    }
+  ]
+}

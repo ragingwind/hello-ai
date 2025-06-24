@@ -1,7 +1,7 @@
-import type { LucideIcon } from "lucide-react"
-import * as lucideIcons from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import type { LucideIcon } from 'lucide-react';
+import * as lucideIcons from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 import {
   CardContent,
   CardDescription,
@@ -9,22 +9,23 @@ import {
   CardHeader,
   CardTitle,
   Card as CardUI,
-} from "@/components/ui/card"
+} from '@/components/ui/card';
 
 function getIcon(name: string): LucideIcon {
-  const icon = Object.keys(lucideIcons).find(key => key.toLowerCase() === name.toLowerCase())
+  const icon = Object.keys(lucideIcons).find((key) => key.toLowerCase() === name.toLowerCase());
 
-  return (icon ? lucideIcons[icon as keyof typeof lucideIcons] : lucideIcons.File) as LucideIcon
+  return (icon ? lucideIcons[icon as keyof typeof lucideIcons] : lucideIcons.File) as LucideIcon;
 }
 
 interface CardProps {
-  title: string
-  description: string
-  icon: string
+  title: string;
+  description: string;
+  icon: string;
+  path: string;
 }
 
-export function Card({ title, description, icon }: CardProps) {
-  const Icon = getIcon(icon)
+export function Card({ title, description, icon, path }: CardProps) {
+  const Icon = getIcon(icon);
   return (
     <CardUI className="flex flex-col h-full transition-all duration-200 hover:shadow-lg">
       <CardHeader>
@@ -37,10 +38,10 @@ export function Card({ title, description, icon }: CardProps) {
         <CardDescription>{description}</CardDescription>
       </CardContent>
       <CardFooter>
-        <Link href="/examples/web-summarization">
+        <Link href={path}>
           <Button className="w-full">Learn More</Button>
         </Link>
       </CardFooter>
     </CardUI>
-  )
+  );
 }
