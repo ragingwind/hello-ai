@@ -51,3 +51,7 @@ Located in `/app/examples/web-summarization/`:
 - **Node.js**: Version 22 required
 - **Package Manager**: pnpm (version 10.6.5+)
 - **API Keys**: Configured through environment variables for each AI provider
+
+## How to code
+
+- MUST following the guide at @CODEGEN comment in the file. It's high priority instuctions
