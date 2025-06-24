@@ -62,7 +62,10 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">URL Summarizer</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Summarization Web Content</h1>
+          <h3>
+            Powered by <b>Puppeteer</b>
+          </h3>
           <p className="text-center text-muted-foreground">
             Enter a URL to get an AI-generated summary of its content
           </p>

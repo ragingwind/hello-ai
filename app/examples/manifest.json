@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "examples": [
     {
-      "id": "scrapping",
-      "name": "Scraping and Summarization with Puppeteer",
+      "id": "summarize",
+      "name": "Summarization Web Content",
       "description": "Extract and summarize content from any web page using AI models with web scraping capabilities via Puppeteer and Mozilla Readability",
-      "path": "/examples/scrapping",
+      "path": "/examples/summarize",
       "features": [
         "Multi-provider AI support (OpenAI, Anthropic, Google, Mistral, etc.)",
         "Smart content extraction with Mozilla Readability",
