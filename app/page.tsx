@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-1">
             <a
-              href="https://github.com/hkmoon/hello-ai"
+              href="https://github.com/ragingwind/hello-ai"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-gray-900 transition-colors"
